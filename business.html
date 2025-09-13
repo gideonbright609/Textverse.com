@@ -12,7 +12,7 @@
       padding: 0;
     }
     header {
-      background: #1f2937;
+      background: #374151;
       color: white;
       padding: 15px 40px;
       display: flex;
@@ -31,56 +31,200 @@
       color: #38bdf8;
       text-decoration: none;
     }
-    .course-container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+
+    /* Breadcrumb navigation */
+    .breadcrumb {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px 40px;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
     }
-    h2 {
-      color: #1f2937;
+    .breadcrumb a {
+      color: #38bdf8;
+      text-decoration: none;
     }
-    .lesson {
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content layout */
+    .main-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      min-height: calc(100vh - 120px);
+    }
+
+    /* Left content area */
+    .content-area {
+      flex: 1;
+      padding: 40px;
+      max-width: 800px;
+    }
+
+    /* Course header */
+    .course-header {
+      display: flex;
+      align-items: center;
       margin-bottom: 20px;
-      padding: 15px;
-      border-left: 4px solid #3b82f6;
-      background: #f3f4f6;
-      border-radius: 6px;
+    }
+    .course-icon {
+      width: 40px;
+      height: 40px;
+      background: #38bdf8;
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    .course-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #1f2937;
+      margin: 0;
+    }
+    .course-emoji {
+      margin-left: 10px;
+      font-size: 24px;
+    }
+    .course-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Lesson styling */
+    .lesson {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 4px solid #38bdf8;
+      background: #f8fafc;
+      border-radius: 8px;
     }
     .lesson h3 {
-      margin: 0 0 10px 0;
+      margin: 0 0 15px 0;
+      color: #1f2937;
+      font-size: 20px;
+    }
+    .lesson p {
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
     /* Toggle lessons */
     .toggle-item {
       margin: 10px 0;
-      padding: 12px;
+      padding: 15px;
       background: #e5e7eb;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 600;
+      color: #374151;
+      transition: all 0.2s ease;
     }
     .toggle-item:hover {
       background: #d1d5db;
+      transform: translateX(2px);
+    }
+    .toggle-item.active {
+      background: #38bdf8;
+      color: white;
     }
     .toggle-content {
       display: none;
-      margin-top: 8px;
-      padding: 10px;
+      margin-top: 10px;
+      padding: 20px;
       background: #f9fafb;
-      border-radius: 6px;
+      border-radius: 8px;
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      animation: slideDown 0.3s ease;
     }
     .toggle-item.active + .toggle-content {
       display: block;
     }
 
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Right sidebar navigation */
+    .sidebar {
+      width: 300px;
+      background: #f8fafc;
+      border-left: 1px solid #e5e7eb;
+      padding: 30px 20px;
+    }
+    .sidebar h4 {
+      color: #1f2937;
+      font-size: 16px;
+      margin: 0 0 20px 0;
+      font-weight: 600;
+    }
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-list li {
+      margin-bottom: 8px;
+    }
+    .nav-list a {
+      display: block;
+      padding: 10px 15px;
+      color: #6b7280;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      font-size: 14px;
+    }
+    .nav-list a:hover {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    .nav-list a.active {
+      background: #38bdf8;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e5e7eb;
+      }
+      .content-area {
+        padding: 20px;
+      }
+      .breadcrumb {
+        padding: 15px 20px;
+      }
+      header {
+        padding: 15px 20px;
+      }
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background: #1f2937;
+      background: #374151;
       color: white;
       margin-top: 40px;
     }
@@ -95,104 +239,142 @@
     </nav>
   </header>
 
-  <div class="course-container">
-    <h2>Business Fundamentals</h2>
-    <p>Learn the foundations of business strategy, management, and growth through text-based lessons.</p>
-
-    <div class="lesson">
-      <h3>Lesson 1: Introduction to Business</h3>
-      <p>Business is the activity of making one’s living or making money by producing or buying and selling products. 
-         The core purpose of business is to provide goods and services that meet the needs of society.</p>
-    </div>
-
-    <div class="lesson">
-      <h3>Lesson 2: Types of Businesses</h3>
-      <p>There are several types of businesses. Click to explore:</p>
-
-      <div class="toggle-item">Sole Proprietorship</div>
-      <div class="toggle-content">
-        <p>A Sole Proprietorship is the simplest form of business, owned and operated by one person. It offers full control but also full personal liability.</p>
-        <ul>
-          <li>✅ Easy to set up and run</li>
-          <li>✅ Full control over decisions</li>
-          <li>❌ Unlimited personal liability</li>
-          <li>❌ Harder to raise capital</li>
-        </ul>
-      </div>
-
-      <div class="toggle-item">Partnership</div>
-      <div class="toggle-content">
-        <p>A Partnership involves two or more individuals sharing ownership and responsibility for a business.</p>
-        <ul>
-          <li>✅ Shared decision-making and skills</li>
-          <li>✅ Easier to raise funds</li>
-          <li>❌ Shared liability</li>
-          <li>❌ Potential conflicts between partners</li>
-        </ul>
-      </div>
-
-      <div class="toggle-item">Corporation</div>
-      <div class="toggle-content">
-        <p>A Corporation is a separate legal entity that protects owners from personal liability but has stricter regulations.</p>
-        <ul>
-          <li>✅ Limited liability protection</li>
-          <li>✅ Easier to raise large capital</li>
-          <li>❌ Complex setup and regulations</li>
-          <li>❌ Double taxation (in some cases)</li>
-        </ul>
-      </div>
-
-      <div class="toggle-item">Limited Liability Company (LLC)</div>
-      <div class="toggle-content">
-        <p>An LLC blends the flexibility of a partnership with the liability protection of a corporation.</p>
-        <ul>
-          <li>✅ Limited liability</li>
-          <li>✅ Flexible taxation</li>
-          <li>✅ Fewer regulations than corporations</li>
-          <li>❌ Can be costlier to set up than a sole proprietorship</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="lesson">
-  <h3>Lesson 3: Business Management Basics</h3>
-    <p>
-      Business management is the process of coordinating people, resources, and strategies to achieve organizational goals. 
-      Effective managers balance short-term needs with long-term vision.
-    </p>
-  <div class="toggle-item">Business Management</div>
-  <div class="toggle-content">
-    <h4>4 Core Functions of Management (The P-O-L-C Framework)</h4>
-    <ol>
-      <li><b>Planning</b> – setting goals, defining strategies, and predicting challenges.</li>
-      <li><b>Organizing</b> – arranging people, tasks, and resources to implement the plan.</li>
-      <li><b>Leading</b> – motivating, guiding, and inspiring employees to perform effectively.</li>
-      <li><b>Controlling</b> – tracking progress, measuring results, and making adjustments.</li>
-    </ol>
-
-    <h4>Key Managerial Skills</h4>
-    <ul>
-      <li>📊 <b>Decision-Making</b> – weighing options and choosing the best path forward.</li>
-      <li>🤝 <b>Communication</b> – clear direction and feedback keep teams aligned.</li>
-      <li>🚀 <b>Leadership</b> – inspiring confidence and motivating employees.</li>
-      <li>📈 <b>Strategic Thinking</b> – anticipating trends and preparing for the future.</li>
-    </ul>
-
-    <h4>Mini Case Example</h4>
-    <p>
-      Imagine a startup launching a new app.  
-      The manager <b>plans</b> the launch strategy, <b>organizes</b> the dev & marketing teams, <b>leads</b> by motivating the team to meet deadlines, and <b>controls</b> by checking performance metrics after launch.
-    </p>
-
-    <h4>Quick Reflection Question</h4>
-    <p><i>"If you were managing this startup, how would you motivate your team during crunch time?"</i></p>
+  <div class="breadcrumb">
+    <a href="home.html">Home</a> > <a href="business.html">Business</a> > <span>Business Fundamentals</span>
   </div>
-</div>
 
-    <div class="lesson">
-      <h3>Lesson 4: Business Growth & Scaling</h3>
-      <p>Scaling a business requires sustainable systems, customer retention, and innovation. 
-         Entrepreneurs must balance risk-taking with long-term planning.</p>
+  <div class="main-container">
+    <div class="content-area">
+      <div class="course-header">
+        <div class="course-icon">B</div>
+        <div>
+          <h1 class="course-title">Business Fundamentals</h1>
+          <div class="course-updated">Updated over 4 months ago</div>
+        </div>
+        <div class="course-emoji">🌱</div>
+      </div>
+
+      <div class="lesson">
+        <h3>Introduction to Business</h3>
+        <p>Business is the activity of making one's living or making money by producing or buying and selling products. 
+           The core purpose of business is to provide goods and services that meet the needs of society.</p>
+      </div>
+
+      <div class="lesson">
+        <h3>Types of Businesses</h3>
+        <p>There are several types of businesses. Click to explore:</p>
+
+        <div class="toggle-item">Sole Proprietorship</div>
+        <div class="toggle-content">
+          <p>A Sole Proprietorship is the simplest form of business, owned and operated by one person. It offers full control but also full personal liability.</p>
+          <ul>
+            <li>✅ Easy to set up and run</li>
+            <li>✅ Full control over decisions</li>
+            <li>❌ Unlimited personal liability</li>
+            <li>❌ Harder to raise capital</li>
+          </ul>
+        </div>
+
+        <div class="toggle-item">Partnership</div>
+        <div class="toggle-content">
+          <p>A Partnership involves two or more individuals sharing ownership and responsibility for a business.</p>
+          <ul>
+            <li>✅ Shared decision-making and skills</li>
+            <li>✅ Easier to raise funds</li>
+            <li>❌ Shared liability</li>
+            <li>❌ Potential conflicts between partners</li>
+          </ul>
+        </div>
+
+        <div class="toggle-item">Corporation</div>
+        <div class="toggle-content">
+          <p>A Corporation is a separate legal entity that protects owners from personal liability but has stricter regulations.</p>
+          <ul>
+            <li>✅ Limited liability protection</li>
+            <li>✅ Easier to raise large capital</li>
+            <li>❌ Complex setup and regulations</li>
+            <li>❌ Double taxation (in some cases)</li>
+          </ul>
+        </div>
+
+        <div class="toggle-item">Limited Liability Company (LLC)</div>
+        <div class="toggle-content">
+          <p>An LLC blends the flexibility of a partnership with the liability protection of a corporation.</p>
+          <ul>
+            <li>✅ Limited liability</li>
+            <li>✅ Flexible taxation</li>
+            <li>✅ Fewer regulations than corporations</li>
+            <li>❌ Can be costlier to set up than a sole proprietorship</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <h3>Business Management Basics</h3>
+        <p>
+          Business management is the process of coordinating people, resources, and strategies to achieve organizational goals. 
+          Effective managers balance short-term needs with long-term vision.
+        </p>
+        <div class="toggle-item">Business Management</div>
+        <div class="toggle-content">
+          <h4>4 Core Functions of Management (The P-O-L-C Framework)</h4>
+          <ol>
+            <li><b>Planning</b> – setting goals, defining strategies, and predicting challenges.</li>
+            <li><b>Organizing</b> – arranging people, tasks, and resources to implement the plan.</li>
+            <li><b>Leading</b> – motivating, guiding, and inspiring employees to perform effectively.</li>
+            <li><b>Controlling</b> – tracking progress, measuring results, and making adjustments.</li>
+          </ol>
+
+          <h4>Key Managerial Skills</h4>
+          <ul>
+            <li>📊 <b>Decision-Making</b> – weighing options and choosing the best path forward.</li>
+            <li>🤝 <b>Communication</b> – clear direction and feedback keep teams aligned.</li>
+            <li>🚀 <b>Leadership</b> – inspiring confidence and motivating employees.</li>
+            <li>📈 <b>Strategic Thinking</b> – anticipating trends and preparing for the future.</li>
+          </ul>
+
+          <h4>Mini Case Example</h4>
+          <p>
+            Imagine a startup launching a new app.  
+            The manager <b>plans</b> the launch strategy, <b>organizes</b> the dev & marketing teams, <b>leads</b> by motivating the team to meet deadlines, and <b>controls</b> by checking performance metrics after launch.
+          </p>
+
+          <h4>Quick Reflection Question</h4>
+          <p><i>"If you were managing this startup, how would you motivate your team during crunch time?"</i></p>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <h3>Business Growth & Scaling</h3>
+        <p>Scaling a business requires sustainable systems, customer retention, and innovation. 
+           Entrepreneurs must balance risk-taking with long-term planning.</p>
+      </div>
+    </div>
+
+    <!-- Right sidebar navigation -->
+    <div class="sidebar">
+      <h4>Course Navigation</h4>
+      <ul class="nav-list">
+        <li><a href="#introduction" class="active">Introduction to Business</a></li>
+        <li><a href="#types">Types of Businesses</a></li>
+        <li><a href="#management">Business Management Basics</a></li>
+        <li><a href="#growth">Business Growth & Scaling</a></li>
+      </ul>
+      
+      <h4 style="margin-top: 30px;">Other Related Articles</h4>
+      <ul class="nav-list">
+        <li><a href="#marketing">Marketing Fundamentals</a></li>
+        <li><a href="#finance">Financial Planning</a></li>
+        <li><a href="#leadership">Leadership Skills</a></li>
+        <li><a href="#strategy">Strategic Planning</a></li>
+      </ul>
+
+      <h4 style="margin-top: 30px;">AI Agent Projects</h4>
+      <ul class="nav-list">
+        <li><a href="#project1">Business Plan Generator</a></li>
+        <li><a href="#project2">Market Analysis Tool</a></li>
+        <li><a href="#project3">Financial Calculator</a></li>
+      </ul>
     </div>
   </div>
 
@@ -207,10 +389,26 @@
         item.classList.toggle('active');
       });
     });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-list a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('.nav-list a').forEach(l => l.classList.remove('active'));
+        
+        // Add active class to clicked link
+        link.classList.add('active');
+        
+        // Smooth scroll to section (if implemented)
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
