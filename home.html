@@ -8,21 +8,70 @@
   <link rel="stylesheet" href="favicon.ico">
 </head>
 <body>
-  <!-- Header -->
+  <!-- 🔹 Hamburger Menu Button -->
+  <div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- 🔹 Dark Overlay -->
+  <div class="overlay" id="overlay"></div>
+  
+
+  <!-- 🔹 Side Menu -->
+  <nav class="side-menu" id="side-menu">
+    <div class="menu-header">
+      <div class="menu-close" id="menu-close">&times;</div>
+      <div class="auth-options">
+        <a href="auth.html" class="login">Login</a>
+        <a href="auth.html" class="signup">Sign Up</a>
+      </div>
+    </div>
+
+    <div class="menu-content">
+      <button class="accordion">Business</button>
+      <div class="panel">
+        <p><a href="business.html">Explore Business Courses</a></p>
+      </div>
+
+      <button class="accordion">Programming</button>
+      <div class="panel">
+        <p><a href="programming.html">Explore Programming Courses</a></p>
+      </div>
+
+      <button class="accordion">Science</button>
+      <div class="panel">
+        <p><a href="science.html">Explore Science Courses</a></p>
+      </div>
+
+      <button class="accordion">Language</button>
+      <div class="panel">
+        <p><a href="science.html">Explore Language Courses</a></p>
+      </div>
+
+      <button class="accordion">Medicine</button>
+      <div class="panel">
+        <p><a href="science.html">Explore Medicine Courses</a></p>
+      </div>
+
+      <button class="accordion">Arts</button>
+      <div class="panel">
+        <p><a href="science.html">Explore Art Courses</a></p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🔹 Header -->
   <header>
-    <h1><a href="home.html">Textverse&#46;com</a></h1>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="#">Courses</a>
-      <a href="auth.html">Login|SignUp</a>
-    </nav>
+    <h1><a href="home.html">Textverse.com</a></h1>
   </header>
 
   <!-- Hero Section -->
   <div class="hero">
     <h2>Learn Anything Through Text</h2>
     <p>Discover courses, track your study time, and climb the ranks of professionals worldwide.</p>
-    <button> <a href="auth.html">Start Learning Free</a></button>
+    <button><a href="auth.html">Start Learning Free</a></button>
   </div>
 
   <!-- Categories -->
@@ -43,11 +92,14 @@
     <h3>Trending Courses</h3>
     <div class="courses">
       <div class="card">
-        <h4>Business Fundamentals</h4><p>⭐ 4.7 (1800 learners)</p><a href="business.html">View Course</a>
+        <h4>Business Fundamentals</h4>
+        <p>⭐ 4.7 (1800 learners)</p>
+        <a href="business.html">View Course</a>
       </div>
       <div class="card">
         <h4>Intro to Python</h4>
-        <p>⭐ 4.8 (2000 learners)</p><a href="python.html">View Course</a>
+        <p>⭐ 4.8 (2000 learners)</p>
+        <a href="python.html">View Course</a>
       </div>
       <div class="card">
         <h4>Human Anatomy Basics</h4>
@@ -64,8 +116,78 @@
   <footer>
     <p>&copy; 2025 Textverse. All rights reserved.</p>
   </footer>
+
+  <!-- JS -->
+  <script>
+// 🔹 Grab elements
+const menuBtn = document.getElementById("menu-btn");       // Hamburger button
+const sideMenu = document.getElementById("side-menu");     // Side menu container
+const menuClose = document.getElementById("menu-close");   // Close button in menu
+const accordions = document.querySelectorAll(".accordion"); // All accordion buttons
+
+// 🔹 Overlay div to close menu on click outside
+let menuOverlay = document.createElement("div");
+menuOverlay.style.position = "fixed";
+menuOverlay.style.top = 0;
+menuOverlay.style.left = 0;
+menuOverlay.style.width = "100%";
+menuOverlay.style.height = "100%";
+menuOverlay.style.background = "rgba(0,0,0,0.3)";
+menuOverlay.style.zIndex = 1190; // below side-menu
+menuOverlay.style.display = "none";
+document.body.appendChild(menuOverlay);
+
+// 🔹 Open menu function
+function openMenu() {
+  sideMenu.classList.add("open");
+  menuBtn.classList.add("open");
+  menuOverlay.style.display = "block";
+}
+
+// 🔹 Close menu function
+function closeMenu() {
+  sideMenu.classList.remove("open");
+  menuBtn.classList.remove("open");
+  menuOverlay.style.display = "none";
+  // Close all accordion panels
+  accordions.forEach(btn => {
+    btn.classList.remove("active");
+    btn.nextElementSibling.style.maxHeight = null;
+  });
+}
+
+// 🔹 Hamburger click
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  openMenu();
+});
+
+// 🔹 Close button click
+menuClose.addEventListener("click", closeMenu);
+
+// 🔹 Overlay click
+menuOverlay.addEventListener("click", closeMenu);
+
+// 🔹 Accordion functionality (only one panel open at a time)
+accordions.forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    // Close other panels
+    accordions.forEach(other => {
+      if (other !== btn) {
+        other.classList.remove("active");
+        other.nextElementSibling.style.maxHeight = null;
+      }
+    });
+    // Toggle current panel
+    btn.classList.toggle("active");
+    const panel = btn.nextElementSibling;
+    panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+  });
+});
+</script>
+
+
 </body>
 </html>
-
-
 
