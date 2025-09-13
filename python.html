@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro to Python - Textverse&#46;com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    header h1 a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .bus-head {
+      margin-top: 10px;
+      font-weight: bold;
+    
+    }
+    .bus-head a{
+      text-decoration: none;
+      padding: 0 10px;
+    }
+
+    .course-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1f2937;
+    }
+    .lesson {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 4px solid #3b82f6;
+      background: #f3f4f6;
+      border-radius: 6px;
+    }
+    .lesson h3 {
+      margin: 0 0 10px 0;
+    }
+    .toggle-item {
+      margin: 10px 0;
+      padding: 12px;
+      background: #e5e7eb;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .toggle-item:hover {
+      background: #d1d5db;
+    }
+    .toggle-content {
+      display: none;
+      margin-top: 8px;
+      padding: 10px;
+      background: #f9fafb;
+      border-radius: 6px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .toggle-item.active + .toggle-content {
+      display: block;
+    }
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    /* Progress bar */
+    .progress-container {
+      margin: 20px 0;
+      background: #e5e7eb;
+      border-radius: 8px;
+      height: 20px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: #38bdf8;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      text-align: right;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #374151;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1f2937;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="home.html">Textverse&#46;com</a></h1>
+    <nav class="bus-head">
+      <a href="home.html" style="color:white;">Home</a>
+      <a href="programming.html" style="color:white;">Programming</a>
+    </nav>
+  </header>
+
+  <div class="course-container">
+    <h2>Intro to Python</h2>
+    <p>Python is one of the most beginner-friendly programming languages. This roadmap introduces Python step by step with short lessons and examples.</p>
+
+    <!-- Progress Tracker -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-text" id="progress-text">0% Complete</div>
+
+    <!-- Sample Lesson -->
+    <div class="lesson">
+      <h3>Lesson 1: Getting Started</h3>
+      <div class="toggle-item" data-lesson>
+        📌 What is Python? <span>⬜</span>
+      </div>
+      <div class="toggle-content">
+        <p>Python is a high-level, interpreted language used in web apps, data science, AI, and more.</p>
+      </div>
+      <div class="toggle-item" data-lesson>
+        🖥️ First Program <span>⬜</span>
+      </div>
+      <div class="toggle-content">
+        <pre>print("Hello, World!")</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div class="lesson">
+      <h3>Lesson 2: Variables & Data Types</h3>
+      <div class="toggle-item" data-lesson>📦 Variables <span>⬜</span>
+      </div>
+      <div class="toggle-content">
+        <pre>name = "Alice"
+age = 25
+        </pre>
+      </div>
+      <div class="toggle-item" data-lesson>🔢 Data Types <span>⬜</span></div>
+      <div class="toggle-content">
+        <p>Types: <b>int</b>, <b>float</b>, <b>str</b>, <b>bool</b>.</p>
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div class="lesson">
+      <h3>Lesson 3: Strings</h3>
+      <div class="toggle-item" data-lesson>✍️ String Basics <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>greeting = "Hello"
+print(greeting.upper())
+print(greeting.lower())
+        </pre>
+      </div>
+      <div class="toggle-item" data-lesson>🔗 String Concatenation <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>name = "Alice"
+print("Hello " + name)</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div class="lesson">
+      <h3>Lesson 4: Lists</h3>
+      <div class="toggle-item" data-lesson>📋 Creating Lists <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>fruits = ["apple", "banana", "cherry"]</pre>
+      </div>
+      <div class="toggle-item" data-lesson>🔄 Iterating <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>for fruit in fruits:
+    print(fruit)</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 5 -->
+    <div class="lesson">
+      <h3>Lesson 5: Dictionaries</h3>
+      <div class="toggle-item" data-lesson>📒 Key-Value Pairs <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>person = {"name": "Alice", "age": 25}
+print(person["name"])</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 6 -->
+    <div class="lesson">
+      <h3>Lesson 6: If Statements</h3>
+      <div class="toggle-item" data-lesson>🔀 Conditions <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>x = 10
+if x > 5:
+    print("Greater")
+else:
+    print("Smaller")</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 7 -->
+    <div class="lesson">
+      <h3>Lesson 7: Loops</h3>
+      <div class="toggle-item" data-lesson>🔁 For Loops <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>for i in range(5):
+    print(i)</pre>
+      </div>
+      <div class="toggle-item" data-lesson>🔄 While Loops <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>count = 0
+while count < 5:
+    print(count)
+    count += 1</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 8 -->
+    <div class="lesson">
+      <h3>Lesson 8: Functions</h3>
+      <div class="toggle-item" data-lesson>⚙️ Defining Functions <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>def greet(name):
+    return "Hello " + name</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 9 -->
+    <div class="lesson">
+      <h3>Lesson 9: Error Handling</h3>
+      <div class="toggle-item" data-lesson>⚠️ Try & Except <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>try:
+    print(10 / 0)
+except ZeroDivisionError:
+    print("Error: Division by zero")</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 10 -->
+    <div class="lesson">
+      <h3>Lesson 10: File Handling</h3>
+      <div class="toggle-item" data-lesson>📂 Writing Files <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>with open("data.txt", "w") as f:
+    f.write("Hello File!")</pre>
+      </div>
+      <div class="toggle-item" data-lesson>📖 Reading Files <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>with open("data.txt", "r") as f:
+    print(f.read())</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 11 -->
+    <div class="lesson">
+      <h3>Lesson 11: Classes & Objects</h3>
+      <div class="toggle-item" data-lesson>🏗️ Defining a Class <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>class Person:
+    def __init__(self, name):
+        self.name = name
+
+p = Person("Alice")
+print(p.name)</pre>
+      </div>
+    </div>
+
+    <!-- Lesson 12 -->
+    <div class="lesson">
+      <h3>Lesson 12: Modules & Libraries</h3>
+      <div class="toggle-item" data-lesson>📦 Importing <span>⬜</span></div>
+      <div class="toggle-content">
+        <pre>import math
+print(math.sqrt(16))</pre>
+      </div>
+    </div> <!-- closes lesson -->
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Textverse. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    const items = document.querySelectorAll('.toggle-item');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    let completed = 0;
+    const total = items.length;
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+        const isActive = item.classList.contains('active');
+        const statusSpan = item.querySelector('span');
+
+        if (isActive) {
+          completed++;
+          statusSpan.textContent = "✅";
+        } else {
+          completed--;
+          statusSpan.textContent = "⬜";
+        }
+
+        let percent = Math.round((completed / total) * 100);
+        progressBar.style.width = percent + "%";
+        progressText.textContent = percent + "% Complete";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up - Textverse&#46;com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .auth-container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #1f2937;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #38bdf8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #38bdf8;
+    }
+    .toggle-link {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+      color:#38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <h2 id="form-title">Login</h2>
+    <form id="auth-form">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <a href="#" class="toggle-link" onclick="toggleForm()">Are You New? Sign Up!</a>
+  </div>
+
+  <script>
+    function toggleForm() {
+      const title = document.getElementById("form-title");
+      const form = document.getElementById("auth-form");
+      const link = document.querySelector(".toggle-link");
+
+      if (title.textContent === "Login") {
+        title.textContent = "Sign Up";
+        form.innerHTML = `
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Sign Up</button>
+        `;
+        link.textContent = "Have An Account? Login!";
+      } else {
+        title.textContent = "Login";
+        form.innerHTML = `
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Login</button>
+        `;
+        link.textContent = "Are You New? Sign Up!";
+      }
+    }
+  </script>
+</body>
+</html>
