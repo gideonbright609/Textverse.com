@@ -18,74 +18,86 @@
       display: flex;
       justify-content: space-between;
     }
-    header h1 a {
+    .bus-head a{
+      text-decoration: none;
+      display: inline;
+      padding: 0px 10px;
+    }
+    .bus-head {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    header h1 a{
       color: #38bdf8;
       text-decoration: none;
     }
 
-    .bus-head {
-      margin-top: 10px;
-      font-weight: bold;
-    
+    /* Breadcrumb navigation */
+    .breadcrumb {
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
     }
-    .bus-head a{
+    .breadcrumb a {
+      color: #3b82f6;
       text-decoration: none;
-      padding: 0 10px;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
     }
 
-    .course-container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #1f2937;
-    }
-    .lesson {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-left: 4px solid #3b82f6;
-      background: #f3f4f6;
-      border-radius: 6px;
-    }
-    .lesson h3 {
-      margin: 0 0 10px 0;
-    }
-    .toggle-item {
-      margin: 10px 0;
-      padding: 12px;
-      background: #e5e7eb;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
+    /* Main content layout */
+    .main-container {
       display: flex;
-      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      min-height: calc(100vh - 120px);
+    }
+
+    /* Left content area */
+    .content-area {
+      flex: 1;
+      padding: 40px;
+      max-width: 800px;
+    }
+
+    /* Course header */
+    .course-header {
+      display: flex;
       align-items: center;
+      margin-bottom: 20px;
     }
-    .toggle-item:hover {
-      background: #d1d5db;
+    .course-icon {
+      width: 40px;
+      height: 40px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
     }
-    .toggle-content {
-      display: none;
-      margin-top: 8px;
-      padding: 10px;
-      background: #f9fafb;
-      border-radius: 6px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    .course-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #1f2937;
+      margin: 0;
     }
-    .toggle-item.active + .toggle-content {
-      display: block;
+    .course-emoji {
+      margin-left: 10px;
+      font-size: 24px;
     }
-    pre {
-      background: #1e293b;
-      color: #f8fafc;
-      padding: 10px;
-      border-radius: 6px;
-      overflow-x: auto;
+    .course-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 5px;
     }
+
     /* Progress bar */
     .progress-container {
       margin: 20px 0;
@@ -107,6 +119,142 @@
       margin-top: 5px;
       color: #374151;
     }
+
+    /* Lesson styling */
+    .lesson {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 4px solid #3b82f6;
+      background: #f8fafc;
+      border-radius: 8px;
+    }
+    .lesson h3 {
+      margin: 0 0 15px 0;
+      color: #1f2937;
+      font-size: 20px;
+    }
+    .lesson p {
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Toggle lessons */
+    .toggle-item {
+      margin: 10px 0;
+      padding: 15px;
+      background: #e5e7eb;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #374151;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .toggle-item:hover {
+      background: #d1d5db;
+      transform: translateX(2px);
+    }
+    .toggle-item.active {
+      background: #3b82f6;
+      color: white;
+    }
+    .toggle-content {
+      display: none;
+      margin-top: 10px;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      animation: slideDown 0.3s ease;
+    }
+    .toggle-item.active + .toggle-content {
+      display: block;
+    }
+
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Right sidebar navigation */
+    .sidebar {
+      width: 300px;
+      background: #f8fafc;
+      border-left: 1px solid #e5e7eb;
+      padding: 30px 20px;
+    }
+    .sidebar h4 {
+      color: #1f2937;
+      font-size: 16px;
+      margin: 0 0 20px 0;
+      font-weight: 600;
+    }
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-list li {
+      margin-bottom: 8px;
+    }
+    .nav-list a {
+      display: block;
+      padding: 10px 15px;
+      color: #6b7280;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      font-size: 14px;
+    }
+    .nav-list a:hover {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    .nav-list a.active {
+      background: #3b82f6;
+      color: white;
+      font-weight: 500;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e5e7eb;
+      }
+      .content-area {
+        padding: 20px;
+      }
+      .breadcrumb {
+        padding: 15px 20px;
+      }
+      header {
+        padding: 15px 20px;
+      }
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -125,220 +273,284 @@
     </nav>
   </header>
 
-  <div class="course-container">
-    <h2>Intro to Python</h2>
-    <p>Python is one of the most beginner-friendly programming languages. This roadmap introduces Python step by step with short lessons and examples.</p>
+  <div class="breadcrumb">
+    <a href="home.html">Home</a> > <a href="programming.html">Programming</a> > <span>Intro to Python</span>
+  </div>
 
-    <!-- Progress Tracker -->
-    <div class="progress-container">
-      <div class="progress-bar" id="progress-bar"></div>
-    </div>
-    <div class="progress-text" id="progress-text">0% Complete</div>
+  <div class="main-container">
+    <div class="content-area">
+      <div class="course-header">
+        <div class="course-icon">P</div>
+        <div>
+          <h1 class="course-title" id="getting-started">Intro to Python</h1>
+          <div class="course-updated">Updated over 4 months ago</div>
+        </div>
+        <div class="course-emoji">🐍</div>
+      </div>
 
-    <!-- Sample Lesson -->
-    <div class="lesson">
-      <h3>Lesson 1: Getting Started</h3>
-      <div class="toggle-item" data-lesson>
-        📌 What is Python? <span>⬜</span>
-      </div>
-      <div class="toggle-content">
-        <p>Python is a high-level, interpreted language used in web apps, data science, AI, and more.</p>
-      </div>
-      <div class="toggle-item" data-lesson>
-        🖥️ First Program <span>⬜</span>
-      </div>
-      <div class="toggle-content">
-        <pre>print("Hello, World!")</pre>
-      </div>
-    </div>
+      <p>Python is one of the most beginner-friendly programming languages. This roadmap introduces Python step by step with short lessons and examples.</p>
 
-    <!-- Lesson 2 -->
-    <div class="lesson">
-      <h3>Lesson 2: Variables & Data Types</h3>
-      <div class="toggle-item" data-lesson>📦 Variables <span>⬜</span>
+      <!-- Progress Tracker -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
       </div>
-      <div class="toggle-content">
-        <pre>name = "Alice"
-age = 25
-        </pre>
-      </div>
-      <div class="toggle-item" data-lesson>🔢 Data Types <span>⬜</span></div>
-      <div class="toggle-content">
-        <p>Types: <b>int</b>, <b>float</b>, <b>str</b>, <b>bool</b>.</p>
-      </div>
-    </div>
+      <div class="progress-text" id="progress-text">0% Complete</div>
 
-    <!-- Lesson 3 -->
-    <div class="lesson">
-      <h3>Lesson 3: Strings</h3>
-      <div class="toggle-item" data-lesson>✍️ String Basics <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>greeting = "Hello"
+      <!-- Lesson 1 -->
+      <div class="lesson">
+        <h3>Lesson 1: Getting Started</h3>
+        <div class="toggle-item" data-lesson>
+          📌 What is Python? <span>⬜</span>
+        </div>
+        <div class="toggle-content">
+          <p>Python is a high-level, interpreted language used in web apps, data science, AI, and more.</p>
+        </div>
+        <div class="toggle-item" data-lesson>
+          🖥️ First Program <span>⬜</span>
+        </div>
+        <div class="toggle-content">
+          <pre>print("Hello, World!")</pre>
+        </div>
+      </div>
+
+      <!-- Lesson 2 -->
+      <div class="lesson" id="variables">
+        <h3>Lesson 2: Variables & Data Types</h3>
+        <div class="toggle-item" data-lesson>�� Variables <span>⬜</span>
+        </div>
+        <div class="toggle-content">
+          <pre>name = "Alice"
+age = 25</pre>
+        </div>
+        <div class="toggle-item" data-lesson id="variables">🔢 Data Types <span>⬜</span></div>
+        <div class="toggle-content">
+          <p>Types: <b>int</b>, <b>float</b>, <b>str</b>, <b>bool</b>.</p>
+        </div>
+      </div>
+
+      <!-- Lesson 3 -->
+      <div class="lesson" id="strings">
+        <h3>Lesson 3: Strings</h3>
+        <div class="toggle-item" data-lesson>✍️ String Basics <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>greeting = "Hello"
 print(greeting.upper())
-print(greeting.lower())
-        </pre>
-      </div>
-      <div class="toggle-item" data-lesson>🔗 String Concatenation <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>name = "Alice"
+print(greeting.lower())</pre>
+        </div>
+        <div class="toggle-item" data-lesson>�� String Concatenation <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>name = "Alice"
 print("Hello " + name)</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 4 -->
-    <div class="lesson">
-      <h3>Lesson 4: Lists</h3>
-      <div class="toggle-item" data-lesson>📋 Creating Lists <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>fruits = ["apple", "banana", "cherry"]</pre>
-      </div>
-      <div class="toggle-item" data-lesson>🔄 Iterating <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>for fruit in fruits:
+      <!-- Lesson 4 -->
+      <div class="lesson" id="lists">
+        <h3>Lesson 4: Lists</h3>
+        <div class="toggle-item" data-lesson>📋 Creating Lists <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>fruits = ["apple", "banana", "cherry"]</pre>
+        </div>
+        <div class="toggle-item" data-lesson>🔄 Iterating <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>for fruit in fruits:
     print(fruit)</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 5 -->
-    <div class="lesson">
-      <h3>Lesson 5: Dictionaries</h3>
-      <div class="toggle-item" data-lesson>📒 Key-Value Pairs <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>person = {"name": "Alice", "age": 25}
+      <!-- Lesson 5 -->
+      <div class="lesson" id="dictionaries">
+        <h3>Lesson 5: Dictionaries</h3>
+        <div class="toggle-item" data-lesson>📒 Key-Value Pairs <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>person = {"name": "Alice", "age": 25}
 print(person["name"])</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 6 -->
-    <div class="lesson">
-      <h3>Lesson 6: If Statements</h3>
-      <div class="toggle-item" data-lesson>🔀 Conditions <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>x = 10
+      <!-- Lesson 6 -->
+      <div class="lesson" id="conditions">
+        <h3>Lesson 6: If Statements</h3>
+        <div class="toggle-item" data-lesson>🔀 Conditions <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>x = 10
 if x > 5:
     print("Greater")
 else:
     print("Smaller")</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 7 -->
-    <div class="lesson">
-      <h3>Lesson 7: Loops</h3>
-      <div class="toggle-item" data-lesson>🔁 For Loops <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>for i in range(5):
+      <!-- Lesson 7 -->
+      <div class="lesson" id="loops">
+        <h3>Lesson 7: Loops</h3>
+        <div class="toggle-item" data-lesson>🔁 For Loops <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>for i in range(5):
     print(i)</pre>
-      </div>
-      <div class="toggle-item" data-lesson>🔄 While Loops <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>count = 0
+        </div>
+        <div class="toggle-item" data-lesson>🔄 While Loops <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>count = 0
 while count < 5:
     print(count)
     count += 1</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 8 -->
-    <div class="lesson">
-      <h3>Lesson 8: Functions</h3>
-      <div class="toggle-item" data-lesson>⚙️ Defining Functions <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>def greet(name):
+      <!-- Lesson 8 -->
+      <div class="lesson" id="functions">
+        <h3>Lesson 8: Functions</h3>
+        <div class="toggle-item" data-lesson>⚙️ Defining Functions <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>def greet(name):
     return "Hello " + name</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 9 -->
-    <div class="lesson">
-      <h3>Lesson 9: Error Handling</h3>
-      <div class="toggle-item" data-lesson>⚠️ Try & Except <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>try:
+      <!-- Lesson 9 -->
+      <div class="lesson" id="errors">
+        <h3>Lesson 9: Error Handling</h3>
+        <div class="toggle-item" data-lesson>⚠️ Try & Except <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>try:
     print(10 / 0)
 except ZeroDivisionError:
     print("Error: Division by zero")</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 10 -->
-    <div class="lesson">
-      <h3>Lesson 10: File Handling</h3>
-      <div class="toggle-item" data-lesson>📂 Writing Files <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>with open("data.txt", "w") as f:
+      <!-- Lesson 10 -->
+      <div class="lesson" id="files">
+        <h3>Lesson 10: File Handling</h3>
+        <div class="toggle-item" data-lesson>📂 Writing Files <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>with open("data.txt", "w") as f:
     f.write("Hello File!")</pre>
-      </div>
-      <div class="toggle-item" data-lesson>📖 Reading Files <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>with open("data.txt", "r") as f:
+        </div>
+        <div class="toggle-item" data-lesson>📖 Reading Files <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>with open("data.txt", "r") as f:
     print(f.read())</pre>
+        </div>
       </div>
-    </div>
 
-    <!-- Lesson 11 -->
-    <div class="lesson">
-      <h3>Lesson 11: Classes & Objects</h3>
-      <div class="toggle-item" data-lesson>🏗️ Defining a Class <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>class Person:
+      <!-- Lesson 11 -->
+      <div class="lesson" id="classes">
+        <h3>Lesson 11: Classes & Objects</h3>
+        <div class="toggle-item" data-lesson>🏗️ Defining a Class <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>class Person:
     def __init__(self, name):
         self.name = name
 
 p = Person("Alice")
 print(p.name)</pre>
+        </div>
+      </div>
+
+      <!-- Lesson 12 -->
+      <div class="lesson" id="modules">
+        <h3>Lesson 12: Modules & Libraries</h3>
+        <div class="toggle-item" data-lesson>📦 Importing <span>⬜</span></div>
+        <div class="toggle-content">
+          <pre>import math
+print(math.sqrt(16))</pre>
+        </div>
       </div>
     </div>
 
-    <!-- Lesson 12 -->
-    <div class="lesson">
-      <h3>Lesson 12: Modules & Libraries</h3>
-      <div class="toggle-item" data-lesson>📦 Importing <span>⬜</span></div>
-      <div class="toggle-content">
-        <pre>import math
-print(math.sqrt(16))</pre>
-      </div>
-    </div> <!-- closes lesson -->
+    <!-- Right sidebar navigation -->
+    <div class="sidebar">
+      <h4>Course Navigation</h4>
+      <ul class="nav-list">
+        <li><a href="#getting-started" class="active">Getting Started</a></li>
+        <li><a href="#variables">Variables & Data Types</a></li>
+        <li><a href="#strings">Strings</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#dictionaries">Dictionaries</a></li>
+        <li><a href="#conditions">If Statements</a></li>
+        <li><a href="#loops">Loops</a></li>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#errors">Error Handling</a></li>
+        <li><a href="#files">File Handling</a></li>
+        <li><a href="#classes">Classes & Objects</a></li>
+        <li><a href="#modules">Modules & Libraries</a></li>
+      </ul>
+      
+      <h4 style="margin-top: 30px;">Other Related Articles</h4>
+<ul class="nav-list">
+  <li><a href="#advanced-python">Advanced Python</a></li>
+  <li><a href="programming.html">Web Development</a></li>  <!-- This should work if file exists -->
+  <li><a href="#data-science">Data Science</a></li>
+  <li><a href="home.html">Machine Learning</a></li>
+</ul>
 
+      <h4 style="margin-top: 30px;">AI Agent Projects</h4>
+      <ul class="nav-list">
+        <li><a href="#project1">Python Code Generator</a></li>
+        <li><a href="#project2">Bug Fixer Assistant</a></li>
+        <li><a href="#project3">Code Review Tool</a></li>
+      </ul>
+    </div>
   </div>
 
   <footer>
     <p>&copy; 2025 Textverse. All rights reserved.</p>
   </footer>
 
-
   <script>
-    const items = document.querySelectorAll('.toggle-item');
-    const progressBar = document.getElementById('progress-bar');
-    const progressText = document.getElementById('progress-text');
-    let completed = 0;
-    const total = items.length;
+  const items = document.querySelectorAll('.toggle-item');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  let completed = 0;
+  const total = items.length;
 
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-        const isActive = item.classList.contains('active');
-        const statusSpan = item.querySelector('span');
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const isActive = item.classList.contains('active');
+      const statusSpan = item.querySelector('span');
 
-        if (isActive) {
-          completed++;
-          statusSpan.textContent = "✅";
-        } else {
-          completed--;
-          statusSpan.textContent = "⬜";
-        }
+      if (isActive) {
+        completed++;
+        statusSpan.textContent = "✅";
+      } else {
+        completed--;
+        statusSpan.textContent = "⬜";
+      }
 
-        let percent = Math.round((completed / total) * 100);
-        progressBar.style.width = percent + "%";
-        progressText.textContent = percent + "% Complete";
-      });
+      let percent = Math.round((completed / total) * 100);
+      progressBar.style.width = percent + "%";
+      progressText.textContent = percent + "% Complete";
     });
-  </script>
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      
+      // Only prevent default for internal anchor links (starting with #)
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('.nav-list a').forEach(l => l.classList.remove('active'));
+        
+        // Add active class to clicked link
+        link.classList.add('active');
+        
+        // Smooth scroll to section
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // For external links (like programming.html, home.html), let them navigate normally
+    });
+  });
+</script>
 </body>
 </html>
-
-
-
-
-
-
