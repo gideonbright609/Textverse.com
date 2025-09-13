@@ -126,7 +126,7 @@ footer {
    Hamburger Menu
 ========================= */
 .menu-btn {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 30px;
   display: flex;
@@ -283,3 +283,4 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
+
