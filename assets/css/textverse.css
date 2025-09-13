@@ -1,4 +1,6 @@
-/* Basic reset */
+/* =========================
+   Reset & Global Styles
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +13,9 @@ body {
   color: #333;
 }
 
+/* =========================
+   Header
+========================= */
 header {
   display: flex;
   justify-content: space-between;
@@ -26,13 +31,9 @@ header h1 a {
   text-decoration: none;
 }
 
-header nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
+/* =========================
+   Hero Section
+========================= */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -63,12 +64,16 @@ header nav a {
 
 .hero button a {
   text-decoration: none;
+  color: inherit;
 }
 
 .hero button:hover {
   background-color: #f3f4f6;
 }
 
+/* =========================
+   Sections: Categories & Courses
+========================= */
 section {
   padding: 40px 20px;
   max-width: 1000px;
@@ -106,6 +111,9 @@ h3 {
   transform: translateY(-5px);
 }
 
+/* =========================
+   Footer
+========================= */
 footer {
   text-align: center;
   padding: 20px;
@@ -114,10 +122,164 @@ footer {
   margin-top: 40px;
 }
 
-/* Programming course */
-/* .coursing {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-} */
+/* =========================
+   Hamburger Menu
+========================= */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s;
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Transform hamburger to X */
+.menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =========================
+   Side Menu
+========================= */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px; /* hidden by default */
+  width: 260px;
+  height: 100%;
+  background: #1f2937;
+  color: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.4);
+  transition: right 0.3s ease-in-out;
+  z-index: 1200;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.side-menu.open {
+  right: 0; /* slide in */
+}
+
+/* Close button */
+.menu-close {
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+/* Auth buttons (Login / Sign Up) */
+.auth-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.auth-options a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #38bdf8;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-options a:hover {
+  background: #3b82f6;
+}
+
+/* Accordion buttons */
+.accordion {
+  background: none;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  text-align: left;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.accordion:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.accordion.active {
+  background: rgba(255,255,255,0.15); /* highlight active */
+}
+
+/* Panels inside menu */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding-left: 10px;
+}
+
+.panel p a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: #38bdf8;
+  font-size: 14px;
+}
+
+.panel p a:hover {
+  color: #3b82f6;
+}
+
+/* Scrollbar inside menu */
+.side-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.side-menu::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 3px;
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .categories,
+  .courses {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
