@@ -19,25 +19,171 @@
       justify-content: space-between;
     }
     header h1 a {
-      color: #38bdf8;
+      color:  #f9fafb;
       text-decoration: none;
     }
-    nav {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    nav a {
-      text-decoration: none;
-      padding: 0px 10px;
-      color: white;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
+
+     /* Harmburger Menu */
+  .menu-btn {
+  position: absolute;
+  top: 2.5rem;
+  right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s;
+ }
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  background: #f9fafb;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Transform hamburger to X */
+.menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+    /* Side Menu */
+  .side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* hidden by default */
+  width: 260px;
+  height: 100%;
+  background: #374151;
+  color: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.4);
+  transition: right 0.3s ease-in-out;
+  z-index: 1200;
+  padding: 20px;
+  overflow-y: auto;
+  }
+
+  .side-menu.open {
+  right: 0; /* slide in */
+}
+
+/* Close button */
+.menu-close {
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+/* Auth buttons (Login / Sign Up) */
+.auth-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.auth-options a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #B8C5E8;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-options a:hover {
+  background: #ced6eb;
+}
+
+/* Accordion buttons */
+.accordion {
+  background: none;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  text-align: left;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.accordion:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.accordion.active {
+  background: rgba(255,255,255,0.15); /* highlight active */
+}
+
+/* Panels inside menu */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding-left: 10px;
+}
+
+.panel p a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: #38bdf8;
+  font-size: 14px;
+}
+
+.panel p a:hover {
+  color: #3b82f6;
+}
+
+/* Scrollbar inside menu */
+.side-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.side-menu::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 3px;
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .categories,
+  .courses {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
 
     /* Breadcrumb navigation */
     .breadcrumb {
-      background: white;
+      background: #ced6eb;
       padding: 15px 40px;
       border-bottom: 1px solid #e5e7eb;
       font-size: 14px;
@@ -108,7 +254,7 @@
       border-radius: 12px;
       padding: 20px;
       transition: all 0.3s ease;
-      border-left: 4px solid #3b82f6;
+      border-left: 4px solid #B8C5E8;
     }
 
     .card:hover {
@@ -134,7 +280,7 @@
     }
 
     .card a:hover {
-      background: #2563eb;
+      background: #B8C5E8;
     }
 
     /* Responsive design */
@@ -163,18 +309,56 @@
   </style>
 </head>
 <body>
+
+   <!-- 🔹 Hamburger Menu Button -->
+  <div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+    <!-- SIDE MENU -->
+
+      <nav class="side-menu" id="side-menu">
+    <div class="menu-header">
+      <div class="menu-close" id="menu-close">&times;</div>
+      <div class="auth-options">
+        <a href="auth.html" class="login">Login</a>
+        <a href="auth.html" class="signup">Sign Up</a>
+      </div>
+    </div>
+
+    <div class="menu-content">
+      <button class="accordion">Courses</button>
+      <div class="panel">
+        <p><a href="course.html">Explore Different Courses For Your Learning</a></p>
+      </div>
+
+      <button class="accordion">Books</button>
+      <div class="panel">
+        <p><a href="#books">Best Books To Guide Your Knowledge</a></p>
+      </div>
+
+      <button class="accordion">Bible</button>
+      <div class="panel">
+        <p><a href="#career">Bible Studies For You</a></p>
+      </div>
+
+       <button class="accordion">Career</button>
+      <div class="panel">
+        <p><a href="#career">Build Your Career Ranking By Extensive Study</a></p>
+      </div>
+  </nav>
+
+
   <!-- Header -->
   <header>
     <h1><a href="home.html">Textverse&#46;com</a></h1>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="auth.html">Login|SignUp</a>
-    </nav>
   </header>
 
   <!-- Breadcrumb navigation -->
   <div class="breadcrumb">
-    <a href="home.html">Home</a> > <span>Programming Courses</span> 
+    <a href="home.html">Home</a> > <a href="course.html">Courses</a> > <span>Programming</span> 
   </div>
 
   <!-- Main content -->
@@ -185,7 +369,7 @@
         <h1 class="course-title">Programming Courses</h1>
         <div class="course-updated">Updated over 4 months ago</div>
       </div>
-      <div class="course-emoji">💻</div>
+      <div class="course-emoji"></div>
     </div>
 
     <p>Master programming with our comprehensive collection of courses. From beginner-friendly introductions to advanced topics, we have everything you need to become a skilled developer.</p>
@@ -249,5 +433,56 @@
   <footer>
     <p>&copy; 2025 Textverse. All rights reserved.</p>
   </footer>
+
+   <script>
+    // 🔹 Hamburger Menu Script
+document.addEventListener("DOMContentLoaded", () => {
+  const sideMenu = document.getElementById("side-menu");
+  const menuBtn = document.getElementById("menu-btn");
+  const menuClose = document.getElementById("menu-close");
+  const accordions = document.querySelectorAll(".accordion");
+
+  function openMenu() {
+    sideMenu.classList.add("open");
+    menuBtn.classList.add("open");
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    menuBtn.classList.remove("open");
+    accordions.forEach(btn => {
+      btn.classList.remove("active");
+      btn.nextElementSibling.style.maxHeight = null;
+    });
+  }
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (sideMenu.classList.contains("open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menuClose.addEventListener("click", closeMenu);
+
+  accordions.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      accordions.forEach(other => {
+        if (other !== btn) {
+          other.classList.remove("active");
+          other.nextElementSibling.style.maxHeight = null;
+        }
+      });
+      btn.classList.toggle("active");
+      const panel = btn.nextElementSibling;
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+    });
+  });
+});
+   </script>
+
 </body>
 </html>
