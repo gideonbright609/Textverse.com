@@ -28,20 +28,178 @@
       font-weight: bold;
     }
     header h1 a{
-      color: #38bdf8;
+      color: #f1f5f9;
       text-decoration: none;
     }
 
+    /* Harmburger Menu */
+  .menu-btn {
+  position: absolute;
+  top: 2.5rem;
+  right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s;
+ }
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  background: #f9fafb;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Transform hamburger to X */
+.menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+    /* Side Menu */
+  .side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* hidden by default */
+  width: 260px;
+  height: 100%;
+  background: #374151;
+  color: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.4);
+  transition: right 0.3s ease-in-out;
+  z-index: 1200;
+  padding: 20px;
+  overflow-y: auto;
+  }
+
+  .side-menu.open {
+  right: 0; /* slide in */
+}
+
+/* Close button */
+.menu-close {
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+/* Auth buttons (Login / Sign Up) */
+.auth-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.auth-options a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #B8C5E8;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-options a:hover {
+  background: #ced6eb;
+}
+
+/* Accordion buttons */
+.accordion {
+  background: none;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  text-align: left;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.accordion:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.accordion.active {
+  background: rgba(255,255,255,0.15); /* highlight active */
+}
+
+/* Panels inside menu */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding-left: 10px;
+}
+
+.panel p a {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: #B8C5E8;
+  font-size: 14px;
+}
+
+.panel p a:hover {
+  color: #B8C5E8;
+}
+
+/* Scrollbar inside menu */
+.side-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.side-menu::-webkit-scrollbar-thumb {
+  background: #B8C5E8;
+  border-radius: 3px;
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .categories,
+  .courses {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
     /* Breadcrumb navigation */
     .breadcrumb {
-      background: white;
+      background: #ced6eb;
       padding: 15px 40px;
       border-bottom: 1px solid #e5e7eb;
       font-size: 14px;
       color: #6b7280;
     }
     .breadcrumb a {
-      color: #38bdf8;
+      color: #3b82f6;
       text-decoration: none;
     }
     .breadcrumb a:hover {
@@ -51,7 +209,7 @@
     /* Main content layout */
     .main-container {
       display: flex;
-      max-width: 1200px;
+      max-width: 100%;
       margin: 0 auto;
       background: white;
       min-height: calc(100vh - 120px);
@@ -73,7 +231,7 @@
     .course-icon {
       width: 40px;
       height: 40px;
-      background: #38bdf8;
+      background: #3b82f6;
       color: white;
       border-radius: 8px;
       display: flex;
@@ -102,7 +260,7 @@
     .lesson {
       margin-bottom: 30px;
       padding: 20px;
-      border-left: 4px solid #38bdf8;
+      border-left: 4px solid #B8C5E8;
       background: #f8fafc;
       border-radius: 8px;
     }
@@ -133,7 +291,7 @@
       transform: translateX(2px);
     }
     .toggle-item.active {
-      background: #38bdf8;
+      background: #B8C5E8;
       color: white;
     }
     .toggle-content {
@@ -161,43 +319,80 @@
     }
 
     /* Right sidebar navigation */
-    .sidebar {
-      width: 300px;
-      background: #f8fafc;
+   .sidebar {
+      width: 280px;
+      background: white;
       border-left: 1px solid #e5e7eb;
+      padding: 0;
+      height: calc(100vh - 120px);
+      overflow-y: auto;
+      position: absolute;
+      right: 5rem;
+      top: 12rem;
+    }
+
+
+    .sidebar-content {
       padding: 30px 20px;
     }
+
     .sidebar h4 {
       color: #1f2937;
       font-size: 16px;
       margin: 0 0 20px 0;
       font-weight: 600;
+      padding-left: 1rem;
     }
+
+    
     .nav-list {
       list-style: none;
-      padding: 0;
       margin: 0;
+      text-align: left;
     }
+
+
     .nav-list li {
-      margin-bottom: 8px;
+      margin-bottom: 0;
     }
+
     .nav-list a {
       display: block;
-      padding: 10px 15px;
+      padding: 12px 0;
       color: #6b7280;
       text-decoration: none;
-      border-radius: 6px;
-      transition: all 0.2s ease;
       font-size: 14px;
+      font-weight: 400;
+      border-bottom: 1px solid #f3f4f6;
+      transition: color 0.2s ease;
     }
+
     .nav-list a:hover {
-      background: #e5e7eb;
       color: #374151;
     }
+
     .nav-list a.active {
-      background: #38bdf8;
-      color: white;
-      font-weight: 500;
+      color: #1f2937;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Custom scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 2px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
     }
 
     /* Responsive design */
@@ -209,6 +404,8 @@
         width: 100%;
         border-left: none;
         border-top: 1px solid #e5e7eb;
+        height: auto;
+        position: static;
       }
       .content-area {
         padding: 20px;
@@ -231,16 +428,53 @@
   </style>
 </head>
 <body>
+
+  <!-- 🔹 Hamburger Menu Button -->
+  <div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    
+    <!-- SIDE MENU -->
+
+      <nav class="side-menu" id="side-menu">
+    <div class="menu-header">
+      <div class="menu-close" id="menu-close">&times;</div>
+      <div class="auth-options">
+        <a href="auth.html" class="login">Login</a>
+        <a href="auth.html" class="signup">Sign Up</a>
+      </div>
+    </div>
+
+    <div class="menu-content">
+      <button class="accordion">Courses</button>
+      <div class="panel">
+        <p><a href="course.html">Explore Different Courses For Your Learning</a></p>
+      </div>
+
+      <button class="accordion">Books</button>
+      <div class="panel">
+        <p><a href="#books">Best Books To Guide Your Knowledge</a></p>
+      </div>
+
+      <button class="accordion">Bible</button>
+      <div class="panel">
+        <p><a href="#career">Bible Studies For You</a></p>
+      </div>
+
+       <button class="accordion">Career</button>
+      <div class="panel">
+        <p><a href="#career">Build Your Career Ranking By Extensive Study</a></p>
+      </div>
+  </nav>
+
   <header>
     <h1><a href="home.html">Textverse&#46;com</a></h1>
-    <nav class="bus-head">
-      <a href="home.html" style="color:white;">Home</a>
-      <a href="auth.html" style="color:white;">Login</a>
-    </nav>
   </header>
 
   <div class="breadcrumb">
-    <a href="home.html">Home</a> > <a href="business.html">Business</a> > <span>Business Fundamentals</span>
+    <a href="home.html">Home</a> > <a href="course.html">Courses</a> > <span>Business</span>
   </div>
 
   <div class="main-container">
@@ -254,13 +488,13 @@
         <div class="course-emoji">🌱</div>
       </div>
 
-      <div class="lesson" id="introduction">
+      <div class="lesson">
         <h3>Introduction to Business</h3>
         <p>Business is the activity of making one's living or making money by producing or buying and selling products. 
            The core purpose of business is to provide goods and services that meet the needs of society.</p>
       </div>
 
-      <div class="lesson" id="types">
+      <div class="lesson">
         <h3>Types of Businesses</h3>
         <p>There are several types of businesses. Click to explore:</p>
 
@@ -309,7 +543,7 @@
         </div>
       </div>
 
-      <div class="lesson" id="management">
+      <div class="lesson">
         <h3>Business Management Basics</h3>
         <p>
           Business management is the process of coordinating people, resources, and strategies to achieve organizational goals. 
@@ -344,7 +578,7 @@
         </div>
       </div>
 
-      <div class="lesson" id="growth">
+      <div class="lesson">
         <h3>Business Growth & Scaling</h3>
         <p>Scaling a business requires sustainable systems, customer retention, and innovation. 
            Entrepreneurs must balance risk-taking with long-term planning.</p>
@@ -383,6 +617,55 @@
   </footer>
 
   <script>
+
+    // 🔹 Hamburger Menu Script
+document.addEventListener("DOMContentLoaded", () => {
+  const sideMenu = document.getElementById("side-menu");
+  const menuBtn = document.getElementById("menu-btn");
+  const menuClose = document.getElementById("menu-close");
+  const accordions = document.querySelectorAll(".accordion");
+
+  function openMenu() {
+    sideMenu.classList.add("open");
+    menuBtn.classList.add("open");
+  }
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    menuBtn.classList.remove("open");
+    accordions.forEach(btn => {
+      btn.classList.remove("active");
+      btn.nextElementSibling.style.maxHeight = null;
+    });
+  }
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (sideMenu.classList.contains("open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menuClose.addEventListener("click", closeMenu);
+
+  accordions.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      accordions.forEach(other => {
+        if (other !== btn) {
+          other.classList.remove("active");
+          other.nextElementSibling.style.maxHeight = null;
+        }
+      });
+      btn.classList.toggle("active");
+      const panel = btn.nextElementSibling;
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+    });
+  });
+});
+
     // Toggle functionality
     document.querySelectorAll('.toggle-item').forEach(item => {
       item.addEventListener('click', () => {
@@ -390,26 +673,31 @@
       });
     });
 
-    // Smooth scrolling for navigation links
+   // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-list a').forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
+        const href = link.getAttribute('href');
         
-        // Remove active class from all links
-        document.querySelectorAll('.nav-list a').forEach(l => l.classList.remove('active'));
-        
-        // Add active class to clicked link
-        link.classList.add('active');
-        
-        // Smooth scroll to section (if implemented)
-        const targetId = link.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Only prevent default for internal anchor links (starting with #)
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          
+          // Remove active class from all links
+          document.querySelectorAll('.nav-list a').forEach(l => l.classList.remove('active'));
+          
+          // Add active class to clicked link
+          link.classList.add('active');
+          
+          // Smooth scroll to section
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
         }
+        // For external links (like programming.html, home.html), let them navigate normally
       });
     });
   </script>
 </body>
 </html>
-
