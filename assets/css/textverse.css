@@ -21,13 +21,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: #1f2937;
+  background-color: #374151;
   color: white;
 }
 
 header h1 a {
   font-size: 22px;
-  color: #38bdf8;
+  color: #f9fafb;
   text-decoration: none;
 }
 
@@ -37,7 +37,7 @@ header h1 a {
 .hero {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(to right, #38bdf8, #3b82f6);
+  background: linear-gradient(to right, #ced6eb, #B8C5E8);
   color: white;
 }
 
@@ -53,7 +53,7 @@ header h1 a {
 
 .hero button {
   background-color: white;
-  color: #1f2937;
+  color: #374151;
   padding: 12px 24px;
   border: none;
   border-radius: 6px;
@@ -83,7 +83,7 @@ section {
 h3 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: #1f2937;
+  color: #374151;
 }
 
 .categories,
@@ -117,7 +117,7 @@ h3 {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #1f2937;
+  background-color: #374151;
   color: white;
   margin-top: 40px;
 }
@@ -142,7 +142,7 @@ footer {
 .menu-btn span {
   display: block;
   height: 3px;
-  background: white;
+  background: #f9fafb;
   border-radius: 3px;
   transition: 0.3s;
 }
@@ -167,7 +167,7 @@ footer {
   right: -280px; /* hidden by default */
   width: 260px;
   height: 100%;
-  background: #1f2937;
+  background: #374151;
   color: white;
   box-shadow: -2px 0 10px rgba(0,0,0,0.4);
   transition: right 0.3s ease-in-out;
@@ -200,14 +200,14 @@ footer {
   text-decoration: none;
   padding: 8px 14px;
   border-radius: 6px;
-  background: #38bdf8;
+  background: #B8C5E8;
   color: white;
   font-weight: bold;
   transition: 0.3s;
 }
 
 .auth-options a:hover {
-  background: #3b82f6;
+  background: #ced6eb;
 }
 
 /* Accordion buttons */
@@ -283,4 +283,3 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
-
