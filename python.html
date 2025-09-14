@@ -23,16 +23,12 @@
       display: inline;
       padding: 0px 10px;
     }
-    .bus-head {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
     header h1 a{
-      color: #f1f5f9;
+      color: #f9fafb;
       text-decoration: none;
     }
 
-    /* Harmburger Menu */
+     /* Harmburger Menu */
   .menu-btn {
   position: absolute;
   top: 2.5rem;
@@ -211,7 +207,7 @@
       display: flex;
       max-width: 1200px;
       margin: 0 auto;
-      background: #f9fafb;
+      background: white;
       min-height: calc(100vh - 120px);
     }
 
@@ -268,7 +264,7 @@
     .progress-bar {
       height: 100%;
       width: 0;
-      background: rgb(47, 186, 47);
+      background: green;
       transition: width 0.3s ease;
     }
     .progress-text {
@@ -282,7 +278,7 @@
     .lesson {
       margin-bottom: 30px;
       padding: 20px;
-      border-left: 4px solid #B8C5E8;
+      border-left: 4px solid #ced6eb;
       background: #f8fafc;
       border-radius: 8px;
     }
@@ -316,7 +312,7 @@
       transform: translateX(2px);
     }
     .toggle-item.active {
-      background: #B8C5E8;
+      background: #ced6eb;
       color: white;
     }
     .toggle-content {
@@ -365,26 +361,23 @@
       top: 12rem;
     }
 
-
     .sidebar-content {
       padding: 30px 20px;
     }
 
     .sidebar h4 {
       color: #1f2937;
-      font-size: 16px;
+      font-size: 18px;
       margin: 0 0 20px 0;
-      font-weight: 600;
+      font-weight: 700;
       padding-left: 1rem;
     }
 
-    
     .nav-list {
       list-style: none;
       margin: 0;
       text-align: left;
     }
-
 
     .nav-list li {
       margin-bottom: 0;
@@ -392,28 +385,33 @@
 
     .nav-list a {
       display: block;
-      padding: 12px 0;
+      padding: 14px 0;
       color: #6b7280;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 400;
+      font-size: 15px;
+      font-weight: 500;
       border-bottom: 1px solid #f3f4f6;
-      transition: color 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     .nav-list a:hover {
       color: #374151;
+      background: #f9fafb;
+      padding-left: 8px;
     }
 
     .nav-list a.active {
       color: #1f2937;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 700;
+      font-size: 16px;
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding-left: 12px;
     }
 
     /* Custom scrollbar for sidebar */
     .sidebar::-webkit-scrollbar {
-      width: 4px;
+      width: 6px;
     }
 
     .sidebar::-webkit-scrollbar-track {
@@ -422,7 +420,7 @@
 
     .sidebar::-webkit-scrollbar-thumb {
       background: #cbd5e1;
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .sidebar::-webkit-scrollbar-thumb:hover {
@@ -450,6 +448,12 @@
       header {
         padding: 15px 20px;
       }
+      .course-title {
+        font-size: 2rem;
+      }
+      .lesson h3 {
+        font-size: 1.3rem;
+      }
     }
 
     footer {
@@ -462,8 +466,7 @@
   </style>
 </head>
 <body>
-
-    <!-- 🔹 Hamburger Menu Button -->
+   <!-- 🔹 Hamburger Menu Button -->
   <div class="menu-btn" id="menu-btn">
     <span></span>
     <span></span>
@@ -503,12 +506,14 @@
       </div>
   </nav>
 
+  <!-- Header -->
   <header>
     <h1><a href="home.html">Textverse&#46;com</a></h1>
   </header>
 
+  <!-- Breadcrumb navigation -->
   <div class="breadcrumb">
-    <a href="home.html">Home</a> > <a href="course.html">Courses</a> > <a href="programming.html">Programming</a> > <span>Intro to Python</span>
+    <a href="home.html">Home</a> > <a href="programming.html">Programming</a> > <span>Intro to Python</span>
   </div>
 
   <div class="main-container">
@@ -519,6 +524,7 @@
           <h1 class="course-title" id="getting-started">Intro to Python</h1>
           <div class="course-updated">Updated over 4 months ago</div>
         </div>
+        <div class="course-emoji">🐍</div>
       </div>
 
       <p>Python is one of the most beginner-friendly programming languages. This roadmap introduces Python step by step with short lessons and examples.</p>
@@ -555,7 +561,7 @@
           <pre>name = "Alice"
 age = 25</pre>
         </div>
-        <div class="toggle-item" data-lesson>🔢 Data Types <span>⬜</span></div>
+        <div class="toggle-item" data-lesson id="variables">🔢 Data Types <span>⬜</span></div>
         <div class="toggle-content">
           <p>Types: <b>int</b>, <b>float</b>, <b>str</b>, <b>bool</b>.</p>
         </div>
@@ -692,54 +698,78 @@ print(math.sqrt(16))</pre>
         </div>
       </div>
     </div>
-    </div>
-  
 
-    <!-- Right sidebar navigation - Updated to match image exactly -->
+    <!-- Right sidebar navigation -->
     <div class="sidebar">
-      <!-- <div class="sidebar-content"> -->
-        <h4>Course Navigation</h4>
-        <ul class="nav-list">
-          <li><a href="#getting-started">Getting Started</a></li>
-          <li><a href="#variables">Variables & Data Types</a></li>
-          <li><a href="#strings">Strings</a></li>
-          <li><a href="#lists">Lists</a></li>
-          <li><a href="#dictionaries">Dictionaries</a></li>
-          <li><a href="#conditions">If Statements</a></li>
-          <li><a href="#loops">Loops</a></li>
-          <li><a href="#functions">Functions</a></li>
-          <li><a href="#errors">Error Handling</a></li>
-          <li><a href="#files">File Handling</a></li>
-          <li><a href="#classes">Classes & Objects</a></li>
-          <li><a href="#modules">Modules & Libraries</a></li>
-        </ul>
-        
-        <h4 style="margin-top: 30px;">Other Related Articles</h4>
-        <ul class="nav-list" style="margin-top: 30px;">
-          <li><a href="#advanced-python">Advanced Python</a></li>
-          <li><a href="programming.html">Web Development</a></li>
-          <li><a href="#data-science">Data Science</a></li>
-          <li><a href="home.html">Machine Learning</a></li>
-        </ul>
-
-        <h4 style="margin-top: 30px;">AI Agent Projects</h4>
-        <ul class="nav-list" style="margin-top: 30px;">
-          <li><a href="#project1">Python Code Generator</a></li>
-          <li><a href="#project2">Bug Fixer Assistant</a></li>
-          <li><a href="#project3">Code Review Tool</a></li>
-        </ul>
-      <!-- </div> -->
-    </div>
+      <h4>Course Navigation</h4>
+      <ul class="nav-list">
+        <li><a href="#getting-started" class="active">Getting Started</a></li>
+        <li><a href="#variables">Variables & Data Types</a></li>
+        <li><a href="#strings">Strings</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#dictionaries">Dictionaries</a></li>
+        <li><a href="#conditions">If Statements</a></li>
+        <li><a href="#loops">Loops</a></li>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#errors">Error Handling</a></li>
+        <li><a href="#files">File Handling</a></li>
+        <li><a href="#classes">Classes & Objects</a></li>
+        <li><a href="#modules">Modules & Libraries</a></li>
+      </ul>
       
+      <h4 style="margin-top: 30px;">Other Related Articles</h4>
+<ul class="nav-list">
+  <li><a href="#advanced-python">Advanced Python</a></li>
+  <li><a href="programming.html">Web Development</a></li>  <!-- This should work if file exists -->
+  <li><a href="#data-science">Data Science</a></li>
+  <li><a href="home.html">Machine Learning</a></li>
+</ul>
 
+      <h4 style="margin-top: 30px;">AI Agent Projects</h4>
+      <ul class="nav-list">
+        <li><a href="#project1">Python Code Generator</a></li>
+        <li><a href="#project2">Bug Fixer Assistant</a></li>
+        <li><a href="#project3">Code Review Tool</a></li>
+      </ul>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Textverse. All rights reserved.</p>
   </footer>
 
   <script>
-// 🔹 Hamburger Menu Script
-document.addEventListener("DOMContentLoaded", () => {
+
+    // Progress tracker///
+  const items = document.querySelectorAll('.toggle-item');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  let completed = 0;
+  const total = items.length;
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const isActive = item.classList.contains('active');
+      const statusSpan = item.querySelector('span');
+
+      if (isActive) {
+        completed++;
+        statusSpan.textContent = "✅";
+      } else {
+        completed--;
+        statusSpan.textContent = "⬜";
+      }
+
+      let percent = Math.round((completed / total) * 100);
+      progressBar.style.width = percent + "%";
+      progressText.textContent = percent + "% Complete";
+    });
+  });
+
+  // HAMBURGER//
+
+  document.addEventListener("DOMContentLoaded", () => {
   const sideMenu = document.getElementById("side-menu");
   const menuBtn = document.getElementById("menu-btn");
   const menuClose = document.getElementById("menu-close");
@@ -797,12 +827,33 @@ document.querySelectorAll('.nav-list a').forEach(link => {
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   });
 });
-</script>
 
+// 🔹 Highlight active section based on scroll position
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.lesson[id]');
+  const navLinks = document.querySelectorAll('.nav-list a');
+  
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (window.scrollY >= (sectionTop - 200)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
 </body>
 </html>
