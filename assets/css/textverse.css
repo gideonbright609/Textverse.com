@@ -21,7 +21,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: #374151;
+  background-color: #1f2937;
   color: white;
 }
 
@@ -117,7 +117,7 @@ h3 {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #374151;
+  background-color: #1f2937;
   color: white;
   margin-top: 40px;
 }
@@ -283,3 +283,4 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
+
