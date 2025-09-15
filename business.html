@@ -196,8 +196,8 @@
       transform: translateY(0);
     }
 
-    /* Sidebar */
-    .sidebar {
+    /* Right sidebar navigation */
+   .sidebar {
       width: 280px;
       background: white;
       border-left: 1px solid #e5e7eb;
@@ -208,15 +208,29 @@
       right: 5rem;
       top: 12rem;
     }
+
     .sidebar-content {
       padding: 30px 20px;
     }
+
+    .sidebar h4 {
+      color: #1f2937;
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      font-weight: 700;
+      padding-left: 1rem;
+    }
+
     .nav-list {
       list-style: none;
       margin: 0;
       text-align: left;
-      padding: 0;
     }
+
+    .nav-list li {
+      margin-bottom: 0;
+    }
+
     .nav-list a {
       display: block;
       padding: 14px 0;
@@ -227,6 +241,13 @@
       border-bottom: 1px solid #f3f4f6;
       transition: all 0.3s ease;
     }
+
+    .nav-list a:hover {
+      color: #374151;
+      background: #f9fafb;
+      padding-left: 8px;
+    }
+
     .nav-list a.active {
       color: #1f2937;
       font-weight: 700;
@@ -234,6 +255,53 @@
       background: #eff6ff;
       border-left: 4px solid #3b82f6;
       padding-left: 12px;
+    }
+
+    /* Custom scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e5e7eb;
+        height: auto;
+        position: static;
+      }
+      .content-area {
+        padding: 20px;
+      }
+      .breadcrumb {
+        padding: 15px 20px;
+      }
+      header {
+        padding: 15px 20px;
+      }
+      .course-title {
+        font-size: 2rem;
+      }
+      .lesson h3 {
+        font-size: 1.3rem;
+      }
     }
 
     footer {
