@@ -284,3 +284,201 @@ footer {
   }
 }
 
+/*  =============
+==========
+PYTHON ==== BUSINESS ========
+===================================== */
+
+    /* --- BREADCRUMB --- */
+    .breadcrumb {
+      background: #ced6eb;
+      padding: 15px 40px;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
+    }
+    .breadcrumb a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    /* --- MAIN LAYOUT --- */
+   
+
+    .main-container {
+      display: flex;
+      margin: 0 auto;
+      background: white;
+      min-height: calc(100vh - 120px);
+    }
+    .content-area {
+      flex: 1;
+      padding: 40px;
+      max-width: 800px;
+    }
+
+    /* --- COURSE HEADER --- */
+    .course-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .course-icon {
+      width: 40px;
+      height: 40px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    .course-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    /* --- LESSONS --- */
+    .lesson {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .lesson.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- SIDEBAR --- */
+    /* Sidebar (right side, scrollable inside) */
+.sidebar {
+  width: 280px;
+  background: white;
+  border-left: 1px solid #e5e7eb;
+  padding: 0;
+  height: calc(100vh - 120px); /* Full height minus header/footer */
+  overflow-y: auto;            /* Enable scroll */
+  flex-shrink: 0;              /* Prevent flex from squishing it */
+  position: absolute;          /* stay in flex flow */
+  right: 0.7rem;
+}
+
+    .sidebar-content {
+      padding: 30px 20px;
+    }
+
+    .sidebar h4 {
+      color: #1f2937;
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      font-weight: 700;
+      padding-left: 1rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+    }
+
+    .nav-list li {
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .nav-list a {
+      display: block;
+      padding: 14px 0;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      border-bottom: 1px solid #f3f4f6;
+      transition: all 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      color: #374151;
+      background: #f9fafb;
+      padding-left: 8px;
+    }
+
+    .nav-list a.active {
+      color: #1f2937;
+      font-weight: 700;
+      font-size: 16px;
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding-left: 12px;
+    }
+
+    /* Custom scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e5e7eb;
+        height: auto;
+        position: static;
+      }
+      .content-area {
+        padding: 20px;
+      }
+      .breadcrumb {
+        padding: 15px 20px;
+      }
+      header {
+        padding: 15px 20px;
+      }
+      .course-title {
+        font-size: 2rem;
+      }
+      .lesson h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1f2937;
+      color: white;
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    /* === COURSEs html */
+    .main-container1 {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+      background: white;
+      min-height: calc(100vh - 120px);
+    }
