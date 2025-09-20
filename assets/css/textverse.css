@@ -49,7 +49,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 5px 40px;
   background-color: #1f2937;
   color: white;
 }
@@ -100,6 +100,7 @@ header h1 a {
   background-color: #f3f4f6;
   transform: translateY(-2px);
 }
+
 /* =========================
    Sections: Categories & Courses
 ========================= */
@@ -464,4 +465,3 @@ footer p {
   .content-area { padding: 20px; }
   .breadcrumb { padding: 15px 20px; }
 }
-
