@@ -66,10 +66,13 @@ header h1 a {
    Hero Section
 ========================= */
 .hero {
+  display: block;
   text-align: center;
   padding: 60px 20px;
   background: linear-gradient(to right, #ced6eb, #B8C5E8);
   color: white;
+  text-decoration: none; 
+  cursor: pointer;
 }
 
 .hero h2 {
@@ -82,28 +85,21 @@ header h1 a {
   margin-bottom: 25px;
 }
 
-.hero button {
+.hero-btn {
+  display: inline-block;
   background-color: white;
   color: #374151;
   padding: 12px 24px;
-  border: none;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 500;
-  cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
 
-.hero button a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.hero button:hover {
+.hero-btn:hover {
   background-color: #f3f4f6;
   transform: translateY(-2px);
 }
-
 /* =========================
    Sections: Categories & Courses
 ========================= */
@@ -468,3 +464,4 @@ footer p {
   .content-area { padding: 20px; }
   .breadcrumb { padding: 15px 20px; }
 }
+
